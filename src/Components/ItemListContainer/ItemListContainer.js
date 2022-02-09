@@ -6,6 +6,7 @@ import React, {useState,useEffect} from 'react';
 // const pathToIdeas = './ideas.json';
 import ItemList from './ItemList';
 import {getAllItems} from '../../api/Products';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 
 
@@ -32,6 +33,9 @@ return (
     <h1 style={{textAlign: 'center'}}>{greetings}</h1>
       <div style={{display: 'flex',justifyContent: 'space-around'}}>
       <ItemList Items={items}></ItemList>
+       </div>
+      <div style={{display: 'flex'}}>
+      <ItemDetailContainer style={{width: 50 ,justifyContent: 'center'}}></ItemDetailContainer>
       </div>
 
     </div>

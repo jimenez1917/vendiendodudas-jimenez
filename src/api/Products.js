@@ -19,3 +19,17 @@ export const getAllItems = new Promise((resolve, reject) => {
         resolve(products);
     },2000);
 })
+
+export const getItemById = new Promise((resolve, reject) => {
+    setTimeout (()=>{
+        let item=products.find(u=>u.id===2);
+        resolve(item);
+    },1000)
+})
+// export function getItemById(id){
+//     setTimeout(() =>{
+//         let item=products.find(u=>u.id===id);
+//         return item;
+//     },1000);
+// }
+
