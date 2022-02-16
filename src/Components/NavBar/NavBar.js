@@ -9,7 +9,7 @@ import { ThemeProvider } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import { purple, orange} from '@mui/material/colors';
 import CardWidget from '../CardWidget/CardWidget.js';
-
+import { NavLink } from 'react-router-dom';
 // import logo from './images/armucura1';
 // import CantidadAcomprar from './ItemListContainer/ItemListContainer'
 
@@ -31,9 +31,22 @@ const NavBar = () => {
     <AppBar position="static" color="primary">
         <Toolbar>
           <Box sx={{ flexGrow: 1 }}>
-            <Button color="inherit">Criptomonedas</Button>
-            <Button color="inherit">Espirituales</Button>
-            <Button color="inherit">Mentales</Button>
+            {/* <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/aretes'>aretes</NavLink></li>
+            <li><NavLink to='/collares'>collares</NavLink></li>
+            <NavLink to='/pulseras'>pulseras</NavLink> */}
+            <Button color="inherit">
+              <NavLink to='/' className="nav">home</NavLink>
+            </Button>
+            <Button color="inherit">
+              <NavLink to='/category/collares'>Collares</NavLink>
+            </Button>
+            <Button color="inherit">
+              <NavLink to='/category/aretes'>aretes</NavLink>
+            </Button>
+            <Button color="primary">
+              <NavLink to='/category/anillos'>anillos</NavLink>
+            </Button>
           </Box>
           <p>3</p>
           

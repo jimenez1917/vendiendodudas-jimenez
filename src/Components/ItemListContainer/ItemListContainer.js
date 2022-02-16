@@ -7,24 +7,28 @@ import React, {useState,useEffect} from 'react';
 import ItemList from './ItemList';
 import {getAllItems} from '../../api/Products';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import { useParams } from 'react-router-dom';
+
 
 
 
 function ItemListContainer({greetings}){
 const[items,setItems]=useState([]);
-
+const { category } = useParams();
+console.log(category);
 useEffect(()=>{
   getAllItems
   .then((resolve)=>{
-    setItems(resolve);
-  })
-  
+    if(!category) {
+      setItems(resolve);
+    }
+    else{
+      let a=resolve.filter((item)=>item.category==category);
+      setItems(a);
+    }
+  }) 
   .catch((err)=>{console.log('Error la petición');})
-},[])
-
-console.log(items);
-
-
+},[category])
 
 
 return (
@@ -35,7 +39,6 @@ return (
       <ItemList Items={items}></ItemList>
        </div>
       <div style={{display: 'flex'}}>
-      <ItemDetailContainer style={{width: 50 ,justifyContent: 'center'}}></ItemDetailContainer>
       </div>
 
     </div>
