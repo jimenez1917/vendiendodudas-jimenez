@@ -16,7 +16,7 @@
 //         </div>
 //     )
 // }
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -45,9 +45,13 @@ const theme = createTheme({
 })
 
 export default function ItemDetail({itemid}) {
+  const [itemCount,setItemCount] = useState();
+
   function añadir(cantidad){
     console.log(`Se agregan ${cantidad} productos al carrito`);
+    setItemCount(cantidad);
   }
+  
   console.log(itemid)
   return (
     <ThemeProvider theme={theme}>
@@ -57,7 +61,7 @@ export default function ItemDetail({itemid}) {
         height: 500,
         flexgrow: 1,}}>
       <Grid container rowSpacing={2} columSpacing={{ xs:1 , sm:2 , md:3}}>
-        <Grid items xs={12}>
+        <Grid items xs={8.5}>
           <Card sx={{ maxWidth: 600 }}>
             <CardMedia
               component = "img"
@@ -79,7 +83,13 @@ export default function ItemDetail({itemid}) {
               </Typography>
             </CardContent>
             <CardActions sx={{display: 'flex'}}>
-              <ItemCount stock={10} inicial={1} onAdd={añadir} style={{display: 'flex', justifyContent: 'center'}}></ItemCount>
+              {
+                !itemCount ?
+                <ItemCount stock={10} inicial={1} onAdd={añadir} style={{display: 'flex', justifyContent: 'center'}} /> :
+                <Link to='/cart'>Terminar Compra</Link>
+              }
+
+
             </CardActions>
           </Card>
          </Grid>
