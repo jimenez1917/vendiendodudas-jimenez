@@ -6,13 +6,17 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import {Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import {useParams} from 'react-router-dom';
+import {useContext} from 'react';
+import CartContextProvider from './context/CartContext';
+import Cart from './Components/Cart/Cart';
+
 
 
 
 
 function App() {
   return (
-     <div>
+     <CartContextProvider>
       <NavBar />
       <div style={{textAlign: 'center'}}>
 
@@ -23,11 +27,13 @@ function App() {
           element={<ItemListContainer greetings="Armucura" />} />
           <Route path='/producto/:id'
           element={<ItemDetailContainer/>}/>
+          <Route path='/cart'
+          element={<Cart/>}/>
         </Routes>
 
 
       </div>
-    </div>
+    </CartContextProvider>
 
   );
 }

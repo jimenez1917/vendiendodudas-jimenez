@@ -16,7 +16,7 @@
 //         </div>
 //     )
 // }
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -30,6 +30,8 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import {CartContext} from '../../context/CartContext';
+
 
 const theme = createTheme({
   palette: {
@@ -46,14 +48,17 @@ const theme = createTheme({
 
 export default function ItemDetail({itemid}) {
   const [itemCount,setItemCount] = useState();
+  const {addItem, cart }=useContext(CartContext);
 
   function añadir(cantidad){
-    console.log(`Se agregan ${cantidad} productos al carrito`);
+    // console.log(`Se agregan ${cantidad} productos al carrito`);
     setItemCount(cantidad);
+    addItem(cantidad,itemid);
   }
   
-  console.log(itemid)
+  
   return (
+
     <ThemeProvider theme={theme}>
     <center>
     <Box variant='fixed' sx={{       
@@ -98,5 +103,6 @@ export default function ItemDetail({itemid}) {
     </Box>  
     </center>
     </ThemeProvider>
+
   );
 }
