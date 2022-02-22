@@ -16,6 +16,7 @@ import Cart from './Components/Cart/Cart';
 
 function App() {
   return (
+
      <CartContextProvider>
       <NavBar />
       <div style={{textAlign: 'center'}}>
@@ -34,6 +35,7 @@ function App() {
 
       </div>
     </CartContextProvider>
+
 
   );
 }

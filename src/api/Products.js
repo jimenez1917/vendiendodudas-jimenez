@@ -5,7 +5,7 @@ export const products = [
         id:1,
         title:'Collar Hermoso',
         description: 'Protegemos nuestro cuello y nuestro kundalini',
-        price: '60US',
+        price: 60,
         img: './assets/Collar_1.jpg',
         category:'collares'
     },
@@ -13,7 +13,7 @@ export const products = [
         id:2,
         title:'Oir Fuerte',
         description: 'La escucha es un gran detalle de todo ser',
-        price: '50US',
+        price: 50,
         img:'./assets/Aretas_1.jpg',
         category:'aretes'
     },
@@ -21,7 +21,7 @@ export const products = [
         id:3,
         title:'Oir Fuerte',
         description: 'La escucha es un gran detalle de todo ser',
-        price: '50US',
+        price: 66,
         img:'./assets/Pulsera_1.jpg',
         category:'anillos'
     },
@@ -29,7 +29,7 @@ export const products = [
         id:4,
         title:'Oir Fuerte',
         description: 'La escucha es un gran detalle de todo ser',
-        price: '50US',
+        price: 50,
         img:'./assets/Collar_2.jpg',
         category:'collares'
     },
@@ -37,7 +37,7 @@ export const products = [
         id:5,
         title:'Oir Fuerte',
         description: 'La escucha es un gran detalle de todo ser',
-        price: '50US',
+        price: 86,
         img:'./assets/Aretas_2.jpg',
         category:'aretes'
     },
@@ -45,7 +45,7 @@ export const products = [
         id:6,
         title:'Oir Fuerte',
         description: 'La escucha es un gran detalle de todo ser',
-        price: '50US',
+        price: 28,
         img:'./assets/Pulsera_2.jpg',
         category:'anillos'
     },

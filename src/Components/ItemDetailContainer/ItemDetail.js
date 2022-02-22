@@ -48,12 +48,13 @@ const theme = createTheme({
 
 export default function ItemDetail({itemid}) {
   const [itemCount,setItemCount] = useState();
-  const {addItem, cart }=useContext(CartContext);
+  const {addItem, cart, SumarPrecio }=useContext(CartContext);
 
   function añadir(cantidad){
     // console.log(`Se agregan ${cantidad} productos al carrito`);
     setItemCount(cantidad);
     addItem(cantidad,itemid);
+    SumarPrecio(itemid.price);
   }
   
   

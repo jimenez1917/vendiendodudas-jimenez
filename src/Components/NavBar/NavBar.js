@@ -48,8 +48,7 @@ const NavBar = () => {
               <NavLink to='/category/anillos'>anillos</NavLink>
             </Button>
           </Box>
-          <p>3</p>
-          
+            
           <CardWidget></CardWidget>
           <Button color="inherit">Login</Button>
 
