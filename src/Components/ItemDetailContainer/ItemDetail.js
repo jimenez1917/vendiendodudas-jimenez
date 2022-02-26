@@ -33,6 +33,7 @@ import Paper from '@mui/material/Paper';
 import {CartContext} from '../../context/CartContext';
 
 
+
 const theme = createTheme({
   palette: {
     primary:{
@@ -57,8 +58,7 @@ export default function ItemDetail({itemid}) {
     SumarPrecio(itemid.price);
   }
   
-  
-  return (
+   return (
 
     <ThemeProvider theme={theme}>
     <center>

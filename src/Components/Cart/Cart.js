@@ -6,7 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cart = ()=> {
-    const {cart, vaciarCarrito, deleteItemId , TotalPrice} = useContext(CartContext)
+    const {cart, vaciarCarrito, deleteItemId , TotalPrice , CantidadProductos} = useContext(CartContext)
     
 
 
@@ -50,6 +50,7 @@ const Cart = ()=> {
             onClick={vaciarCarrito} style={{color:"Black"}}>
                 Vaciar Carrito
             </button>  
+              <h2>Cantidad = {CantidadProductos}</h2>
               <h1>Total={TotalPrice} USD</h1>       
     </div>
  
