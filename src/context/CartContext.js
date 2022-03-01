@@ -1,4 +1,5 @@
 import {createContext, useState} from 'react';
+//cloudinary
 
 export const CartContext = createContext([]);
 
@@ -8,7 +9,9 @@ const CartContextProvider = ({children}) => {
     const [CantidadProductos,setCantidadProductos] = useState(0);
     //Crear items al carrito
     const addItem = (cantidad, items) =>{
+        console.log(items.id);
         if(isOnCart(items.id)){
+            console.log('entra');
             sumarCantidad(cantidad,items);         
         }else{
             setCart([...cart, {...items, cantidad }]);
@@ -18,11 +21,13 @@ const CartContextProvider = ({children}) => {
         console.log(newCantidad);
         setCantidadProductos(newCantidad);
     }
-    // console.log(cart);
+    // console.log(cart);s
 
     //revisar si esta en el carrot
     const isOnCart=(id)=>{
+        console.log(id);
         const resp = cart.some((prod)=>prod.id === id);
+        console.log(resp);
         return resp;    
     }
 
@@ -34,23 +39,30 @@ const CartContextProvider = ({children}) => {
             }
         })
     }
-    const SumarPrecio = (price) =>{
-        const PrecioTotal = TotalPrice+price
+    const SumarPrecio = (price,cantidad) =>{
+        console.log(cantidad);
+        const PrecioTotal = TotalPrice+(price*cantidad);
         setTotalPrice(PrecioTotal);
     }
 
     const vaciarCarrito= ()=>{
          setCart([]);
          setCantidadProductos(0);
+         setTotalPrice(0);
     }
 
-    const deleteItemId = (id,cantidad)=>{
+    const deleteItemId = (id,cantidad,price)=>{
         setCart(cart.filter((producto)=>producto.id !== id));
         const can=cart.filter((producto)=>producto.id !==id);
         if(can.length>0){
             setCantidadProductos(CantidadProductos-cantidad);
+            let newTotalPrice=TotalPrice-(cantidad*price);
+            console.log(newTotalPrice);
+            setTotalPrice(newTotalPrice);
         }else{
             setCantidadProductos(0);
+            console.log(TotalPrice);
+            setTotalPrice(0);
         }
 
     }

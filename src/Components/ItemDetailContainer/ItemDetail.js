@@ -55,7 +55,7 @@ export default function ItemDetail({itemid}) {
     // console.log(`Se agregan ${cantidad} productos al carrito`);
     setItemCount(cantidad);
     addItem(cantidad,itemid);
-    SumarPrecio(itemid.price);
+    SumarPrecio(itemid.price,cantidad);
   }
   
    return (

@@ -40,7 +40,7 @@ const Cart = ()=> {
                     <td>{product.description}</td>
                     <td>{product.price}</td>
                     <td>{product.img}</td>
-                    <td><button onClick={()=>deleteItemId(product.id,product.cantidad)}> X </button></td>
+                    <td><button onClick={()=>deleteItemId(product.id,product.cantidad,product.price)}> X </button></td>
                     </tr>
             </tbody>
         ))}

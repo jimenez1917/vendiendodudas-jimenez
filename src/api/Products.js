@@ -82,7 +82,7 @@ const getAllItems = new Promise((resolve, reject) => {
     //Referencia a la coleccion, debe tener referencia a base de datos y nombre de colleccion
     getDocs(productsCollection).then((snapshot) => {
         const products = snapshot.docs.map((doc) =>({id:doc.id,...doc.data()}));
-        console.log(snapshot.docs);
+        console.log(products);
         resolve(products);
     }).catch(error=>reject(error))
 })
@@ -90,9 +90,10 @@ function getItemById(id){
     return new Promise((resolve, reject) =>{
         getDocs(productsCollection).then((snapshot=>{
             console.log(id);
-            let product = snapshot.docs.find(doc => doc.id === id);
-            console.log(product.data());
-            resolve(product.data());
+            let product = snapshot.docs.find(doc => doc.id === id)
+            let item = {id:id,...product.data()};
+            console.log(item);
+            resolve(item);
         })).catch(error=>reject(error))
     })
 }
