@@ -15,6 +15,7 @@ export default function ItemDetailContainer(){
     useEffect(() =>{
       getItemById(id).then((results)=>{setItemId(results);});
     },[]);
+    
     // console.log(id);
     // useEffect(()=>{
     //   let item=itemsa.find(u=>u.id===1);

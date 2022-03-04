@@ -7,6 +7,10 @@ const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const [TotalPrice, setTotalPrice] = useState(0);
     const [CantidadProductos,setCantidadProductos] = useState(0);
+    const [ Ordencart , setOrdenCart] = useState([]);
+    const [ TotalPriceGuardar , setTotalPriceGuardar] = useState(0);
+    const [ NewStock , setStock] = useState(0);
+    
     //Crear items al carrito
     const addItem = (cantidad, items) =>{
         console.log(items.id);
@@ -30,7 +34,6 @@ const CartContextProvider = ({children}) => {
         console.log(resp);
         return resp;    
     }
-
     const sumarCantidad = (cantidad,items) =>{
         const copia = [...cart]
         copia.forEach((producto)=>{
@@ -44,13 +47,11 @@ const CartContextProvider = ({children}) => {
         const PrecioTotal = TotalPrice+(price*cantidad);
         setTotalPrice(PrecioTotal);
     }
-
     const vaciarCarrito= ()=>{
          setCart([]);
          setCantidadProductos(0);
          setTotalPrice(0);
     }
-
     const deleteItemId = (id,cantidad,price)=>{
         setCart(cart.filter((producto)=>producto.id !== id));
         const can=cart.filter((producto)=>producto.id !==id);
@@ -66,6 +67,12 @@ const CartContextProvider = ({children}) => {
         }
 
     }
+
+    const OrdenDeCompra = (ordenCart,totalPrice,stock)=>{
+        setOrdenCart(ordenCart);
+        setTotalPriceGuardar(totalPrice);
+        // setStock(stock);
+    }
     
 
     return <CartContext.Provider value ={{cart, 
@@ -74,7 +81,11 @@ const CartContextProvider = ({children}) => {
                                         deleteItemId,
                                         TotalPrice,
                                         SumarPrecio,
-                                        CantidadProductos
+                                        CantidadProductos,
+                                        OrdenDeCompra,
+                                        Ordencart,
+                                        TotalPriceGuardar,
+                                        NewStock
                                     }}>{children}</CartContext.Provider>
 };
 

@@ -9,9 +9,7 @@ import {useParams} from 'react-router-dom';
 import {useContext} from 'react';
 import CartContextProvider from './context/CartContext';
 import Cart from './Components/Cart/Cart';
-
-
-
+import AddItemContainer from './Components/UserItemContainer/UserItemContainer'
 
 
 function App() {
@@ -30,6 +28,10 @@ function App() {
           element={<ItemDetailContainer/>}/>
           <Route path='/cart'
           element={<Cart/>}/>
+          <Route path="/item/add"
+          element={<AddItemContainer/>} />
+          <Route path="/checkout"
+          element={<AddItemContainer/>} />
         </Routes>
 
 
