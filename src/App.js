@@ -1,22 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Logo from './Components/Logo/Logo';
 import NavBar from './Components/NavBar/NavBar';
-// import CartWidget from './Components/CartWidget/CartWidget';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
-import {useParams} from 'react-router-dom';
-import {useContext} from 'react';
 import CartContextProvider from './context/CartContext';
 import Cart from './Components/Cart/Cart';
 import AddItemContainer from './Components/UserItemContainer/UserItemContainer'
+import ItemCount from './Components/ItemListContainer/ItemCount'
 
 
 function App() {
   return (
+  <CartContextProvider>
+    <div>
+      { /* El header va a quedar fijo */ }
+      <header>
+        <div className='desktop-container'> { /* Esto es JSX no es HTML! */ } 
+          <div className='logo-container'>
+            <Link to="/" className='mi-clase-personalizada'>
+              <Logo />
 
-     <CartContextProvider>
-      <NavBar />
+            </Link>
+          </div>
+          <NavBar />
+        </div>
+      </header>
+      <main></main>
+
       <div style={{textAlign: 'center'}}>
 
         <Routes>
@@ -32,12 +43,14 @@ function App() {
           element={<AddItemContainer/>} />
           <Route path="/checkout"
           element={<AddItemContainer/>} />
+          <Route path="/count"
+          element={<ItemCount/>} />
         </Routes>
 
 
       </div>
-    </CartContextProvider>
-
+  </div>
+</CartContextProvider>
 
   );
 }

@@ -7,21 +7,9 @@ export default function ItemDetailContainer(){
     
     const[itemId,setItemId]=useState({});
     const { id }=useParams();
-    // const[itemsa,setItemsa]=useState([]);
-
-    // useEffect(() =>{
-      
-    // },[]);
     useEffect(() =>{
       getItemById(id).then((results)=>{setItemId(results);});
     },[]);
-    
-    // console.log(id);
-    // useEffect(()=>{
-    //   let item=itemsa.find(u=>u.id===1);
-    //   setItemId(item);
-    // },[itemsa])
-    
 
 
 

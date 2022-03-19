@@ -1,0 +1,32 @@
+.logo-ecommerce {
+  width: 4rem;
+  height: 4rem;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  background-color: "#000";
+}
+ul li {
+  list-style: none;
+  margin-right: 2rem;
+}
+li a {
+  text-decoration: none;
+  color: black;
+}
+
+li a.active {
+  font-weight: bold;
+  color: #303030;
+}
+
+li a.active:hover {
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline;
+  color:#303030;
+}

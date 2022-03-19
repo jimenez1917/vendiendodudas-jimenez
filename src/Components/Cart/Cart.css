@@ -1,0 +1,39 @@
+.titlecard h1{
+color: #000;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.actions{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-left: 50%;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.actions button{
+    background-color:#CFC6BE;
+    height: 50px;
+    width: 50%;
+    text-align: center;
+    border-radius: 15px;
+}
+.actions button:hover{
+    background-color:#545647;
+}
+.table{
+    margin-left: 150px;
+    margin-top: 50px;
+}
+.table thead{
+    align-items: center;
+    display: 100%;
+}
+.table tr img{
+    width: 70px;
+    height: 110px;
+}
+.table tbody button{
+    background-color: #CFC6BE;
+}
+.table tbody button:hover{
+    background-color: #545647;
+}

@@ -11,9 +11,14 @@ const getAllItems = new Promise((resolve, reject) => {
 function getItemById(id){
     return new Promise((resolve, reject) =>{
         getDocs(productsCollection).then((snapshot=>{
-            let product = snapshot.docs.find(doc => doc.id === id)
-            let item = {id:id,...product.data()};
-            resolve(item);
+            let secure=snapshot.docs.some(doc => doc.id === id);
+            if(secure){
+                let product = snapshot.docs.find(doc => doc.id === id)
+                let item = {id:id,...product.data()};
+                resolve(item);
+            }else{
+                resolve([]);
+            }
         })).catch(error=>reject(error))
     })
 }

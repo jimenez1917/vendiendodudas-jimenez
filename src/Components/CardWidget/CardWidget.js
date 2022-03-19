@@ -1,9 +1,9 @@
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Button from '@mui/material/Button';
 import {useContext} from 'react';
 import { CartContext } from '../../context/CartContext';
 import {Link} from 'react-router-dom';
+import './Widget.css';
 
 const CardWidget =()=> {
     const {CantidadProductos} = useContext(CartContext);
@@ -12,15 +12,16 @@ const CardWidget =()=> {
         <>
         { 
             !CantidadProductos ? (<>
-                <p></p>
-            </>):(<>
-                <h5>{CantidadProductos}</h5>
+            </>):(
                 <Link to='/cart'>
-                <ShoppingCartIcon className="CartWidget">
-                </ShoppingCartIcon>
+                    <div className="Widget">
+                    <span>
+                        {CantidadProductos}
+                    </span>
+                    <ShoppingCartIcon className="CartWidget" />
+                    </div>
                 </Link>
-                
-            </>)
+            )
         }
 
         </>

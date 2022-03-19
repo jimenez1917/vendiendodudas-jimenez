@@ -1,12 +1,12 @@
-import React from 'react';
 import Item from './Item';
+import './ItemList.css';
 
 export default function ItemList({Items}){
     return (
-        <>
-        {Items.map((item)=>(
-            <Item key={item.id} item={item}/>
-        ))}
-        </>
+        <div className="item-list-container">
+            {Items.map((item)=>(
+                <Item key={item.id} item={item}/>
+            ))}
+        </div>
     )
 }

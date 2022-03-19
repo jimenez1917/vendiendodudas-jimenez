@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import NavBar from './Components/NavBar/NavBar';
 import { BrowserRouter } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
-  <React.StrictMode>
+ <React.StrictMode>
     <BrowserRouter>
     <App />
     </BrowserRouter>

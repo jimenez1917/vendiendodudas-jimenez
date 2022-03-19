@@ -9,7 +9,6 @@ const CartContextProvider = ({children}) => {
     const [CantidadProductos,setCantidadProductos] = useState(0);
     const [ Ordencart , setOrdenCart] = useState([]);
     const [ TotalPriceGuardar , setTotalPriceGuardar] = useState(0);
-    const [ NewStock , setStock] = useState(0);
     
     //Crear items al carrito
     const addItem = (cantidad, items) =>{
@@ -19,19 +18,14 @@ const CartContextProvider = ({children}) => {
             sumarCantidad(cantidad,items);         
         }else{
             setCart([...cart, {...items, cantidad }]);
-            // SumarPrecio(items);
         }
         let newCantidad=CantidadProductos+cantidad;
         console.log(newCantidad);
         setCantidadProductos(newCantidad);
     }
-    // console.log(cart);s
-
     //revisar si esta en el carrot
     const isOnCart=(id)=>{
-        console.log(id);
         const resp = cart.some((prod)=>prod.id === id);
-        console.log(resp);
         return resp;    
     }
     const sumarCantidad = (cantidad,items) =>{
@@ -71,7 +65,6 @@ const CartContextProvider = ({children}) => {
     const OrdenDeCompra = (ordenCart,totalPrice,stock)=>{
         setOrdenCart(ordenCart);
         setTotalPriceGuardar(totalPrice);
-        // setStock(stock);
     }
     
 
@@ -84,8 +77,7 @@ const CartContextProvider = ({children}) => {
                                         CantidadProductos,
                                         OrdenDeCompra,
                                         Ordencart,
-                                        TotalPriceGuardar,
-                                        NewStock
+                                        TotalPriceGuardar
                                     }}>{children}</CartContext.Provider>
 };
 
